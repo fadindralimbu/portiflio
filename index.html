@@ -1,58 +1,339 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>card design</title>
-    <style>
-        .card{
-            height: 400px;
-            width: 430px;
-            box-shadow: 0 0 10px gray;
-            border-radius: 16px;
-        }
-        .card-img img{
-            height: 200px;
-            width: 430px;
-            border-top-right-radius: 16px;
-            border-top-left-radius: 16px;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Professional Portfolio | Business Website</title>
 
-        }
-        
-            .card-content{
-                padding: 0 10px;
-                font-size :15px;
-            }
-            .card-content span:first :first-child{
-                background-color: darkblue;
-                color: white;
-                border-radius: 5px;
-                padding: 10px;
-            }
-        
-    </style>
+  <style>
+    :root {
+      --primary: #2563eb;
+      --dark: #0f172a;
+      --gray: #64748b;
+      --light: #f8fafc;
+      --border: #e2e8f0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+    }
+
+    body {
+      background: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* ================= NAVBAR ================= */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: white;
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+    }
+
+    .nav {
+      max-width: 1200px;
+      margin: auto;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .nav a {
+      margin-left: 25px;
+      text-decoration: none;
+      color: var(--gray);
+      font-weight: 500;
+    }
+
+    .nav a:hover {
+      color: var(--primary);
+    }
+
+    /* ================= HERO ================= */
+    section {
+      padding: 100px 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 50px;
+      padding-top: 150px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: var(--gray);
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      background: var(--primary);
+      color: white;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .btn:hover {
+      opacity: 0.9;
+    }
+
+    .hero-img {
+      width: 100%;
+      height: 350px;
+      background: linear-gradient(135deg, #2563eb, #1e40af);
+      border-radius: 12px;
+    }
+
+    /* ================= SECTIONS ================= */
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-title h2 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: var(--gray);
+    }
+
+    /* ================= SERVICES ================= */
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      margin-bottom: 15px;
+    }
+
+    .card p {
+      color: var(--gray);
+    }
+
+    /* ================= PORTFOLIO ================= */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .project {
+      height: 200px;
+      background: #e5e7eb;
+      border-radius: 10px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project span {
+      position: absolute;
+      bottom: 15px;
+      left: 15px;
+      background: white;
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    /* ================= CONTACT ================= */
+    .contact {
+      max-width: 600px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .contact input,
+    .contact textarea {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+    }
+
+    /* ================= FOOTER ================= */
+    footer {
+      background: #020617;
+      color: #cbd5f5;
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    /* ================= RESPONSIVE ================= */
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+      .hero h1 {
+        font-size: 36px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <div class="card container">
-        <div class="card">
-            <div class="card-img">
-                <img src="../rr.jpeg" alt="">
-            </div>
-            <Div class="card-content">
-                <span>genuiun</span>
-                <h1>Lorem ipsum dolor sit amet consectetur adi.</h1>
-                <span>kathamandu dsg</span>
-                <div class="exc">
-                    <h1>54</h1>
-                    <p>
-                        EXcelent
-                    </p>
-                    
-                </div>
-                <button>getway</button>
-            </Div>
-        </div>
+
+  <!-- NAVBAR -->
+  <header>
+    <div class="nav">
+      <div class="logo">YourBrand</div>
+      <div>
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+      </div>
     </div>
-    
+  </header>
+
+  <!-- HERO -->
+  <section id="home">
+    <div class="container hero">
+      <div>
+        <h1>Building Digital Solutions<br>for Business Growth</h1>
+        <p>
+          Professional software engineer delivering modern, scalable and
+          business-focused digital products.
+        </p>
+        <a href="#contact" class="btn">Get in Touch</a>
+      </div>
+      <div class="hero-img"></div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="container">
+      <div class="section-title">
+        <h2>Services</h2>
+        <p>What I can do for your business</p>
+      </div>
+
+      <div class="services">
+        <div class="card">
+          <h3>Web Development</h3>
+          <p>High-performance, modern websites built with clean architecture.</p>
+        </div>
+        <div class="card">
+          <h3>UI/UX Design</h3>
+          <p>User-centered designs focused on conversion and clarity.</p>
+        </div>
+        <div class="card">
+          <h3>Business Solutions</h3>
+          <p>Custom software tailored to real business requirements.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio">
+    <div class="container">
+      <div class="section-title">
+        <h2>Portfolio</h2>
+        <p>Recent business projects</p>
+      </div>
+
+      <div class="projects">
+        <div class="project"><span>Corporate Website</span></div>
+        <div class="project"><span>SaaS Dashboard</span></div>
+        <div class="project"><span>E-commerce Platform</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-title">
+        <h2>Contact</h2>
+        <p>Let’s discuss your project</p>
+      </div>
+
+      <div class="contact">
+        <input type="text" placeholder="Your Name" />
+        <input type="email" placeholder="Your Email" />
+        <textarea rows="5" placeholder="Your Message"></textarea>
+        <a class="btn" href="#">Send Message</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2026 YourBrand. All Rights Reserved.
+  </footer>
+
+  <script>
+    // Simple fade-in animation on scroll
+    const sections = document.querySelectorAll("section");
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = 1;
+          entry.target.style.transform = "translateY(0)";
+        }
+      });
+    }, { threshold: 0.1 });
+
+    sections.forEach(section => {
+      section.style.opacity = 0;
+      section.style.transform = "translateY(40px)";
+      section.style.transition = "0.6s ease";
+      observer.observe(section);
+    });
+  </script>
+
 </body>
 </html>
